@@ -37,4 +37,34 @@ document.addEventListener('DOMContentLoaded', function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+
+  var track = document.querySelector('.carousel-track');
+  var prevBtn = document.querySelector('.carousel-btn.prev');
+  var nextBtn = document.querySelector('.carousel-btn.next');
+
+  if (track && prevBtn && nextBtn) {
+    var scrollStep = function () {
+      var item = track.querySelector('.carousel-item');
+      var gap = 24;
+      return item ? item.getBoundingClientRect().width + gap : 300;
+    };
+
+    var updateButtons = function () {
+      var maxScroll = track.scrollWidth - track.clientWidth - 2;
+      prevBtn.disabled = track.scrollLeft <= 0;
+      nextBtn.disabled = track.scrollLeft >= maxScroll;
+    };
+
+    prevBtn.addEventListener('click', function () {
+      track.scrollBy({ left: -scrollStep(), behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', function () {
+      track.scrollBy({ left: scrollStep(), behavior: 'smooth' });
+    });
+
+    track.addEventListener('scroll', updateButtons, { passive: true });
+    window.addEventListener('resize', updateButtons);
+    updateButtons();
+  }
 });
