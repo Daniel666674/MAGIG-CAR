@@ -311,38 +311,20 @@ section h3 {
   transform: scale(1.05);
 }
 
-/* Photo placeholder (used until real client photos are added) */
-.photo-placeholder {
+/* Video */
+.video-wrapper {
+  max-width: 420px;
+  margin: 2rem auto 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  background-color: var(--primary);
+}
+
+.video-wrapper video {
   width: 100%;
-  height: 100%;
-  min-height: 220px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, #2d2d2d 0%, var(--primary) 100%);
-  border: 1px dashed rgba(255, 200, 0, 0.35);
-  border-radius: 8px;
-  color: #cccccc;
-}
-
-.photo-placeholder-wide {
-  aspect-ratio: 16 / 10;
-  border-radius: 8px;
-}
-
-.photo-placeholder-icon {
-  font-size: 2.2rem;
-  opacity: 0.7;
-}
-
-.photo-placeholder-text {
-  font-size: 0.85rem;
-  letter-spacing: 0.03em;
-  color: var(--accent);
-  font-weight: 600;
-  text-transform: uppercase;
+  display: block;
+  max-height: 70vh;
 }
 
 /* Contact Form */
